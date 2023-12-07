@@ -1,0 +1,158 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background: #ffdd95; /* A wood texture or color for the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+.game {
+    text-align: center;
+    width: 100%;
+    max-width: 600px; /* Limit the width for larger screens */
+    margin: 0 auto;
+}
+
+.card {
+    width: 120px; /* Width of the card */
+    height: 168px; /* Height of the card */
+    border: 1px solid #000;
+    border-radius: 10px; /* Rounded corners */
+    background-color: #FFF;
+    color: #000;
+    margin: 10px;
+    display: inline-block; /* Cards displayed in a row */
+    vertical-align: top; /* Align the cards properly */
+    line-height: 168px; /* Center the text vertically */
+    font-size: 20px; /* Text size */
+    font-weight: bold;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Card shadow for depth */
+}
+
+.hand {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+.start {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.card {
+    /* ... (existing .card styles) ... */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    padding: 10px; /* Add padding inside the cards */
+    position: relative; /* Positioned relative to its normal position */
+}
+
+.card div {
+    line-height: 1; /* Reset line-height for text within the card */
+    font-size: 1.2em; /* Adjust font size as needed */
+}
+
+.card .value {
+    font-size: 2em; /* Larger font size for the card value */
+}
+
+.card .suit {
+    font-size: 1em; /* Smaller font size for the suit */
+    position: absolute; /* Absolute position */
+    bottom: 10px; /* Positioned at the bottom of the card */
+}
+
+.card:hover {
+    background-color: yellow; /* Change card color on hover */
+}
+
+.controls button {
+    /* ... (existing .controls button styles) ... */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.controls button:hover {
+    background-color: #555; /* Darken button background on hover */
+    transform: scale(1.1); /* Slightly increase button size on hover */
+}
+
+/* New styles for suit colors */
+.hearts, .diamonds {
+    color: red;
+}
+
+.spades, .clubs {
+    color: black;
+}
+
+/* Dynamic pseudo-elements for hand totals */
+.computer-hand::before, .player-hand::before {
+    content: attr(data-total);
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Hover effect for cards */
+.card:hover {
+    background-color: yellow; /* Example color */
+}
+
+
+/* Styles for computer's and player's hand labels */
+.computer-hand::before {
+    content: "Computer Hand - ";
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.player-hand::before {
+    content: "Player Hand - "; /* This should be dynamically updated based on the hand */
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Additional styles for dynamically updating content */
+[data-total="Bust!"] {
+    color: red;
+    font-weight: bold;
+}
+
+.result {
+    font-size: 24px;
+    color: #ffd700; /* Gold color for the winning message */
+    margin-top: 20px;
+}
